@@ -1,0 +1,28 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+
+<div class="container">
+	<h1>Registro de roles</h1>
+	<form>
+		<div class="form-group">
+		  <label for="nombre">Nombre del rol:</label>
+		  <input type="text" id="nombre" #nombre name="nombre" [(ngModel)]="nameRol">
+		</div>
+  		<div class="form-group">
+			<label for="descripción">Descripción:</label>
+			<textarea id="descripción" name="descripción" [(ngModel)]="descRol" rows="4" cols="50" style="resize: none;"></textarea>
+		</div>
+		<div class="form-container">
+			<div class="form-group">
+				<label for="tareas">Privelegios:</label>
+				<ul id="tareas">
+				  <li><input type="checkbox" id="tarea1" name="tarea1" value="CRUD-EMPLEADO"><label for="tarea1">CRUD-EMPLEADO</label></li>
+				  <li><input type="checkbox" id="tarea2" name="tarea2" value="CRUD-MANTENIMIENTO"><label for="tarea2">CRUD-MANTENIMIENTO</label></li>
+				  <li><input type="checkbox" id="tarea3" name="tarea3" value="CRUD-ROL"><label for="tarea3">CRUD-ROL</label></li>
+				  <li><input type="checkbox" id="tarea4" name="tarea4" value="CRUD-CLASES"><label for="tarea4">CRUD-CLASES</label></li>
+				  <li><input type="checkbox" id="tarea5" name="tarea5" value="REVISAR-CHECKIN"><label for="tarea5">REVISAR-CHECKIN</label></li>
+				</ul>
+			</div>
+		</div>
+		<input type="submit" value="Registrar" (click)="registrar()">
+	</form>  
+</div>

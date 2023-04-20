@@ -1,0 +1,63 @@
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">GymCapyFit</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+              <li class="nav-item dropdown" *ngIf="capyfit.crudEmpleado()">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Empleados</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/add">Registrar empleado</a>
+                  <a class="dropdown-item" href="/employees">Ver empleados</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" *ngIf="capyfit.crudRol()">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Roles</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/control-rol">Ver Rol</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/registrar-rol">Registrar Rol</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown"  *ngIf="capyfit.loggedIn()">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Check-in</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/control-check" *ngIf="capyfit.revisarCheckIn()">Control Checkin</a>
+                  <a class="dropdown-item" href="/check">Checkin</a>
+                  <!-- <a class="dropdown-item" href="/registrar-falta">Registrar falta</a> -->
+                </div>
+              </li>
+              <li class="nav-item dropdown" *ngIf="capyfit.crudClases()">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Clases</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="https://angular-zld43c.stackblitz.io/">Registrar clases</a>
+                  <a class="dropdown-item" href="https://angular-zld43c.stackblitz.io/">Ver clases</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" *ngIf="capyfit.crudMantenimiento()">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenimiento</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="https://angular-zld43c.stackblitz.io/">Registra Mantenimiento</a>
+                  <a class="dropdown-item" href="https://angular-zld43c.stackblitz.io/">Ver Mantenimiento</a>
+                  <a class="dropdown-item" href="https://angular-zld43c.stackblitz.io/">Asignar Mantenimiento</a>
+                </div>
+              </li>
+              
+        </ul>
+        <div style="list-style: none;" class="d-flex">
+          <ng-container *ngIf="!capyfit.loggedIn(); else loggedIn">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/signin" routerLinkActive="active">SignIn</a>
+            </li>
+          </ng-container>
+          <ng-template #loggedIn>
+            <li class="nav-item">
+              <a class="nav-link" style="cursor: pointer;" (click)="capyfit.logout()">Logout</a>
+            </li>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,68 @@
+###Obtener todos los Empleados
+GET http://localhost:4000/api/empleado
+
+###Crear Empleado
+POST http://localhost:4000/api/empleado
+Content-Type: application/json
+
+{
+    "IdEmpleado":1000000001,
+    "Nombre": "Juan Pablo Jimenez Jaime",
+    "Edad": 19,
+    "Rol": ["admin"],
+    "Telefono": [4151331602, 4151672436],
+    "Sueldo": 10000.00,
+    "Turno": "Matutino",
+    "Correo": "Juanpij23@hotmail.com",
+    "Password": "linux"
+}
+
+###Obtener Empleado por ID
+GET http://localhost:4000/api/empleado/2758723852
+
+###Eliminar Empleado por ID
+DELETE http://localhost:3000/api/empleado/63ffbdd44e8c96c0c60f038d
+
+###Obtener Empleado por IdEmpleado
+GET http://localhost:4000/api/empleado/IdEmpleado/1234567890
+
+###Actualizar Empleado
+PUT http://localhost:3000/api/empleado/63ffbdd44e8c96c0c60f038d
+Content-Type: application/json
+
+{
+    "IdEmpleado":12312314,
+    "Nombre": "Jose Juan",
+    "Edad": 19,
+    "Rol": ["clases"],
+    "Telefono": [4151331602],
+    "Sueldo": 8000.00,
+    "Turno": "Vespertino",
+    "Correo": "Juanpij23@hotmail.com",
+    "Password": "linux"
+}
+
+###
+POST http://localhost:4000/api/empleado/signin
+Content-Type: application/json
+
+{
+    "IdEmpleado":1000000001,
+    "Password":"linux"
+}
+
+###
+POST http://localhost:4000/api/empleado/signup
+Content-Type: application/json
+
+{
+    "IdEmpleado":1000000001,
+    "Nombre": "Juan Pablo Jimenez Jaime",
+    "Edad": 19,
+    "Rol": ["admin"],
+    "Telefono": [4151331602, 4151672436],
+    "Sueldo": 10000.00,
+    "Turno": "Matutino",
+    "Correo": "Juanpij23@hotmail.com",
+    "Password": "linux"
+}

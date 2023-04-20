@@ -1,0 +1,35 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+
+<header>
+  <!-- Encabezado de la vista -->
+  <h1>Lista de empleados</h1>
+  <div class="search-container">
+    <!-- Contenedor de búsqueda -->
+    <input type="text" class="form-control" placeholder="Buscar empleado..." name="filterPost" [(ngModel)]="filterPost">
+    <!-- Entrada de texto para búsqueda -->
+    <button routerLink="/add">Agregar empleado</button>
+    <!-- Botón para agregar un nuevo empleado -->
+  </div>
+</header>
+<div class="employee-container">
+  <!-- Contenedor de empleados -->
+  <div class="employee-card" *ngFor="let employee of employees | filter:filterPost">
+    <!-- Tarjeta de empleado -->
+    <img src="https://scontent.fcyw4-1.fna.fbcdn.net/v/t1.15752-9/336584590_963190704697464_3942002476864333430_n.png?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=t96qot8noOUAX8EeDYC&_nc_ht=scontent.fcyw4-1.fna&oh=03_AdQOGEfETgymt2L3mYdm41NgOjnOxDnJzdxuT3CScv4Ccg&oe=6442F097" alt="Foto del empleado" (click)="showQR(employee)">
+    <!-- Imagen del empleado -->
+    <h2>{{employee.Nombre}}</h2>
+    <!-- Nombre del empleado -->
+    <!-- <p>{{employee.Rol[0]}}</p> -->
+    <p><strong>Email:</strong>{{employee.Correo}}</p>
+    <!-- Correo electrónico del empleado -->
+    <p><strong>Phone:</strong>{{employee.Telefono[0]}}</p>
+    <!-- Teléfono del empleado -->
+    <div *ngIf="!(employee.IdEmpleado===1000000001)" class="buttons">
+      <!-- Botones de acción para editar y eliminar empleados -->
+      <button routerLink="/edit-emp/{{employee.IdEmpleado}}">Edit</button>
+      <!-- Botón de edición de empleado -->
+      <button (click)="deleteEmployee(employee)">Delete</button>
+      <!-- Botón de eliminación de empleado -->
+    </div>
+  </div>
+</div>

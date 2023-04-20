@@ -1,0 +1,42 @@
+###Obtener todos los Menus
+GET http://localhost:4000/api/rol
+
+###Crear Menu
+POST http://localhost:4000/api/rol
+Content-Type: application/json
+
+{
+    "IdRol": 1,
+    "Nombre": "admin",
+    "Descripcion": "Rol de Administrador",
+    "Menu": "admin"
+}
+
+###Obtener Menu por ID
+GET http://localhost:4000/api/rol/641b368a0be697d8a1466375
+
+###Eliminar Menu por ID
+DELETE http://localhost:3000/api/rol/6400f6e04ea71d71f2a8c5fa
+
+###Obtener Menu por IdMenu
+GET http://localhost:3000/api/rol/IdRol/1
+
+###Actualizar Menu
+PUT  http://localhost:4000/api/rol/admin
+Content-Type: application/json
+
+{
+    "Nombre": "admin",
+    "Descripcion":"Rol de Administrador",
+    "Privilegios": ["CRUD-EMPLEADO","CRUD-MANTENIMIENTO", "REVISAR-CHECKIN", "CRUD-ROL", "CRUD-CLASES"]
+}
+
+###
+PUT  http://localhost:4000/api/rol/clases
+Content-Type: application/json
+
+{
+    "Nombre": "clases",
+    "Descripcion":"Rol de clases",
+    "Privilegios": ["CRUD-CLASES"]
+}

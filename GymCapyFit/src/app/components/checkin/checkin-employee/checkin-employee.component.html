@@ -1,0 +1,93 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+
+<!-- Este código muestra la información de un empleado, nombre, correo y número de empleado.
+Además, muestra diferentes pestañas con información adicional, como una tabla con los registros de asistencia,
+un calendario para seleccionar la hora de entrada y un gráfico con los registros de asistencia mensuales.-->
+
+<div class="contenedor">
+    <div class="info-employee">
+        <img src="https://raw.githubusercontent.com/CarlosMR75/Project-Rook/main/img/ast.png" alt="" class="bd-placeholder-img rounded-circle" height="155px" width="155px">
+        <!-- Nombre del empleado -->
+        <h1 *ngIf="emp">{{emp.Nombre}}</h1>
+    </div>
+    <div class="employee-body d-flex flex-row">
+        <div class="info-body flex-fill me-4">
+          <!-- Datos básicos del empleado -->
+            <p>Nombre Completo: {{emp.Nombre}}</p>
+            <p>Contacto: {{emp.Correo}}</p>
+            <p>No. Empleado: {{emp.IdEmpleado}}</p>
+        </div>
+        <div class="stats-body flex-fill">
+          <!-- Tabs para cambiar entre secciones -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#datos" aria-selected="true" role="tab" tabindex="-1">Datos</a>
+              </li>
+                <li class="nav-item" role="presentation">
+                  <!-- Al hacer clic, cargar el calendario y la información de retardo -->
+                  <a class="nav-link" data-bs-toggle="tab" href="#horaE" aria-selected="false" role="tab" (click)="cargarRet()">Calendario</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <!-- Al hacer clic, cargar la información de retardo y el gráfico -->
+                  <a class="nav-link" data-bs-toggle="tab" href="#regMensual" aria-selected="false" role="tab" tabindex="-1" (click)="loadChart();">Gráfico</a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="datos" role="tabpanel">
+                  <p>Datos</p>
+                  <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Ciclo para mostrar cada registro de entrada y salida del empleado -->
+                        <tr *ngFor="let ch of pla">
+                            <td>{{ch.IdEmpleado}}</td>
+                            <td>{{ch.Fecha}}</td>
+                            <td>{{ch.Hora}}</td>
+                            <td>{{ch.Tipo}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="tab-pane fade" id="horaE" role="tabpanel">
+                    <div class="img-and-text">
+                      <div>
+                        <div class="calendar">
+                          <div class="calendar-header">
+                            <!-- Botones para cambiar de mes en el calendario -->
+                            <button class="prev-month-btn"><i class="fa-solid fa-angle-left"></i></button>
+                            <h2 class="calendar-month"></h2>
+                            <button class="next-month-btn"><i class="fa-solid fa-angle-right"></i></button>
+                          </div>
+                          <div class="calendar-days">
+                            <div class="calendar-day-header">Dom</div>
+                            <div class="calendar-day-header">Lun</div>
+                            <div class="calendar-day-header">Mar</div>
+                            <div class="calendar-day-header">Mie</div>
+                            <div class="calendar-day-header">Jue</div>
+                            <div class="calendar-day-header">Vie</div>
+                            <div class="calendar-day-header">Sab</div>
+                          </div>
+                          <div class="calendar-grid"></div>
+                        </div>
+                      </div>
+                        <p>Hora Entrada:</p>
+                        <p id="entry">Ningún día seleccionado</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="regMensual" role="tabpanel">
+                  <p>Gráfico</p>
+                  <div class="chart-container">
+                    <canvas Id="myChart" #myChart></canvas>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

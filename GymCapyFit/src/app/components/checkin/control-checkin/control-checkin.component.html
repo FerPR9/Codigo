@@ -1,0 +1,25 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+<main>
+    <h1>Control check-in</h1>
+    <!-- Contenedor de tarjetas de empleados -->
+<div class="cards-container">
+    <!-- Tarjeta de empleado para cada elemento en la matriz de empleados -->
+    <div class="card" *ngFor="let employee of employees" routerLink="/check-employee/{{employee.IdEmpleado}}"><!--(click)="toCheck(employee)"-->
+        <!-- Encabezado de la tarjeta -->
+        <div class="card-header">
+            <h2 class="card-title">{{employee.Nombre}}</h2>
+        </div>
+         <!-- Contenido de la tarjeta con información adicional del empleado -->
+        <div class="card-content">
+            <!-- Imagen de la tarjeta (actualmente solo es un marcador de posición) -->
+            <img src="https://via.placeholder.com/150x150" alt="Imagen de la tarjeta">
+            <!-- Div con información adicional del empleado -->
+            <div>
+                <p>ID: {{employee.IdEmpleado}}</p>
+                <p>Turno: {{employee.Turno}}</p>
+                <p>Tel: {{employee.Telefono[0]}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</main>

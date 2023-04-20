@@ -1,0 +1,104 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+
+<!--  Define un contenedor principal para el formulario de registro. -->
+<div class="container-signup">
+    <!-- T Define un contenedor secundario para el título del formulario. -->
+    <div class="card-add">
+        <!-- Encabezado de la tarjeta principal -->
+        <div class="card-header">
+            <h1 id="titke">SignUP</h1>
+        </div>
+    </div>
+    <!-- Define un contenedor secundario para el cuerpo del formulario. -->
+    <div class="card-content">
+        <!-- Define un contenedor para el cuerpo del formulario. -->
+        <div class="card-body">
+            <!-- Define el formulario en sí, utilizando el evento submit para 
+                llamar a una función dependiendo de la variable edit. 
+                Si edit es verdadero, se llama a la función editEmployee(), 
+                de lo contrario, se llama a la función signup(). 
+            -->
+            <form (submit)="edit ? editEmployee() : signup()">
+                <!-- La clase form-group define un grupo de elementos del formulario. -->
+                <div class="form-group">
+                    <!-- Define un contenedor para el campo del formulario con una etiqueta flotante. -->
+                    <div class="form-floating">
+                        <input type="number" min="0" class="form-control" id="inputFloat1" name="ID" [(ngModel)]="empleado.IdEmpleado" placeholder="1221100659">
+                        <label for="floatingInput">IdEmpleado</label>
+                      </div>
+                </div>
+                <!-- Campo de entrada para el nombre del empleado -->
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="empleado.Nombre" name="Nombre" class="form-control"
+                        [placeholder]="'Nombre'" required autofocus autofocus >
+                </div>
+                <!-- Campo de entrada para la edad del empleado -->
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input type="number" min="0" class="form-control" id="floatingInput" name="XD" [(ngModel)]="empleado.Edad" placeholder="name@example.com" required="true">
+                        <label for="floatingInput">Edad</label>
+                      </div>
+                </div>
+                <!-- Campo de selección de turno del empleado -->
+                <div class="form-group">
+                    <label for="floatingInput">Selecciona un turno  </label>
+                    <select [(ngModel)]="empleado.Turno" name="txd">
+                        <option value="Matutino" selected>Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Mixto">Mixto</option>
+                      </select>                  
+                </div>
+                <!-- Campo de entrada para el teléfono del empleado -->
+                <div class="form-group">
+                    <input type="tel" [(ngModel)]="empleado.Telefono" name="Telefono" class="form-control"
+                        placeholder="Telefono" required>
+                </div>
+                <!-- Campo de entrada para el sueldo del empleado -->
+                <div class="form-group">
+                    <label class="form-label">Sueldo</label>
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="number" name="salo" class="form-control" min="0" [(ngModel)]="empleado.Sueldo">
+                      </div>
+                    </div>
+                </div>
+                <!-- Campo de selección de roles del empleado (visible solo si no se esta en el modo de edición) -->
+                <div class="form-group" *ngIf="!edit">
+                    <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle dropdown-toggle-end" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Selecciona uno o más Roles
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <a class="dropdown-item" *ngFor="let opcion of opciones">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{opcion.Nombre}}" id="opcion{{opcion.IdRol}}" name="xd" [(ngModel)]="opcion.seleccionado">
+                                        <label class="form-check-label" for="{{opcion.IdRol}}">
+                                            {{opcion.Nombre}}
+                                        </label>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Campo de entrada para el correo del empleado -->
+                <div class="form-group">
+                    <input type="email" [(ngModel)]="empleado.Correo" name="Correo" class="form-control"
+                        placeholder="Correo" required>
+                </div>
+                <!-- Campo de entrada para la contraseña del empleado -->
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="empleado.Password" name="Password" class="form-control"
+                        placeholder="Password" required>
+                </div>
+                <footer>
+                    <button type="submit" id="bt" class="btn btn-primary btn-block">
+                        SignUp
+                    </button>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>

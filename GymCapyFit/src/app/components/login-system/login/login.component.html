@@ -1,0 +1,24 @@
+<!-- Documentación realizada por Juan Pablo Jimenez Jaime -->
+<div class="container">
+    <!--El formulario de inicio de sesión se envía al hacer clic en el botón "Iniciar sesión"-->
+    <form class="login-form" (submit)="signin()">
+      <h1 class="login-title">Iniciar sesión</h1>
+      <!--Campo de entrada para el ID de Empleado-->
+      <div class="form-group">
+        <label for="email">Id Empleado</label>
+        <!--Se asegura que el valor sea un número entero no negativo-->
+        <input type="number" min="0" class="form-control" id="inputFloat1" name="ID" [(ngModel)]="empleado.IdEmpleado" placeholder="1221100659">
+      </div>
+      <!--Campo de entrada para la contraseña del empleado-->
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <!--El valor de la contraseña se vincula al modelo empleado.Password-->
+        <input type="password" [(ngModel)]="empleado.Password" name="Password" class="form-control" placeholder="Password" required>
+      </div>
+      <!--Botón de inicio de sesión-->
+      <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+      <!--Enlace a la página de registro-->
+      <p>¿Quieres hacer una cuenta? <a href="">Regístrala</a></p>
+    </form>
+  </div>
+  

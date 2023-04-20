@@ -1,0 +1,39 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+
+<!-- Formulario para editar un rol -->
+<div class="container">
+	<!-- Título del formulario -->
+	<h1>Actualizar rol</h1>
+	<form>
+		<!-- Campo para ingresar el nombre del rol -->
+		<div class="form-group">
+			<!-- Etiqueta para el campo -->
+			<label for="nombre">Nombre del rol:</label>
+			<!-- Elemento de entrada para el nombre del rol -->
+			<input type="text" id="nombre" name="nombre" (click)="noClick()" [(ngModel)]="this.newRol.Nombre">
+		</div>
+		<!-- Campo para ingresar la descripción del rol -->
+		<div class="form-group">
+			<!-- Etiqueta para el campo -->
+			<label for="descripción">Descripción:</label>
+			<!-- Elemento de entrada para la descripción del rol -->
+			<textarea id="descripción" name="descripción" rows="4" cols="50" style="resize: none;" [(ngModel)]="this.newRol.Descripcion"></textarea>
+		</div>
+		<!-- Campo para seleccionar los privilegios del rol -->
+		<div class="form-container">
+			<div class="form-group">
+				<!-- Etiqueta para el campo -->
+				<label for="tareas">Privelegios:</label>
+				<!-- Lista de privilegios -->
+				<ul id="tareas">
+				  <li><input type="checkbox" id="tarea1" name="tarea1" value="CRUD-EMPLEADO"><label for="tarea1">CRUD-EMPLEADO</label></li>
+				  <li><input type="checkbox" id="tarea2" name="tarea2" value="CRUD-MANTENIMIENTO"><label for="tarea2">CRUD-MANTENIMIENTO</label></li>
+				  <li><input type="checkbox" id="tarea3" name="tarea3" value="CRUD-ROL"><label for="tarea3">CRUD-ROL</label></li>
+				  <li><input type="checkbox" id="tarea4" name="tarea4" value="CRUD-CLASES"><label for="tarea4">CRUD-CLASES</label></li>
+				  <li><input type="checkbox" id="tarea5" name="tarea5" value="REVISAR-CHECKIN"><label for="tarea5">REVISAR-CHECKIN</label></li>
+				</ul>
+			</div>
+		</div>
+		<input type="submit" value="Editar" (click)="editar()">
+	</form>  
+</div>

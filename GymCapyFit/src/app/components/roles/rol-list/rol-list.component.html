@@ -1,0 +1,58 @@
+<!-- Documentación realizada por Carlos Eduardo Mata Rojas -->
+
+<!-- Formulario para registrar un rol -->
+<h1>Roles del gimnasio</h1>
+<div class="rol-container">
+    <div class="card" *ngFor="let rol of roles">
+        <div class="header">
+            <h2>{{rol.Nombre}}</h2>
+            <div class="icon-container">
+              <i class="fa-solid fa-pen-to-square fa-2x" routerLink="/editar/{{rol.Nombre}}"></i>
+              <i class="fa-solid fa-trash fa-2x" (click)="modalSWA2(rol)"></i>
+            </div>
+        </div>
+        <div class="bodi">
+            <h4>Descripción</h4>
+            <p>{{rol.Descripcion}}</p>
+        </div>
+        <div class="pie">
+            <i class="fa-solid fa-user"></i><p>10</p>
+            <!-- Este botón muestra el modal que se encuentra en este mismo componente -->
+            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#infoModal" (click)="showModal(rol)">Ver más</button>
+        </div>
+    </div>
+    <!-- Aquí va la CARD de agregar rol-->
+    <div class="card">
+        <div class="header">
+            <h2>Nuevo Rol</h2>
+        </div>
+        <div class="bodi">
+            <h4>Añadir Rol</h4>
+            <div routerLink="/registrar-rol">
+              <i class="fa-solid fa-user-plus fa-6x"></i>
+            </div>
+        </div>
+      </div>
+</div>
+
+<!-- Modal de información sobre el rol -->
+<div *ngIf="selectedRol" class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titleModal">Más información del rol {{selectedRol.Nombre}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Nombre: {{selectedRol.Nombre}}</p>
+          <p>Descripción: {{selectedRol.Descripcion}}</p>
+          <p>Privilegios: {{selectedRol.Privilegios}}</p>
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

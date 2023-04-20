@@ -1,0 +1,135 @@
+/* Estilos CSS para las cards */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    padding: 10px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 420px;
+    height: 280px;
+    margin: 20px;
+    transition: all 0.25s;
+    box-shadow: 0 12px 14px rgba(0, 0, 0, 0.2);
+}
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 14px rgba(0, 0, 0, 0.2);
+}
+.card .header {
+    background-color: #e4dfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18%;
+}
+.card .header h2 {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 5px;
+}
+.card .header .icon-container {
+    margin-left: auto;
+    padding: 5px;
+}
+.card .header .icon-container i {
+    margin-left: 1.5px;
+    margin-right: 1.5px;
+}
+.card .header .icon-container .fa-eye {
+    color: #2596be;
+}
+.card .header .icon-container .fa-pen-to-square {
+    color: #f89c14;
+}
+.card .header .icon-container .fa-trash {
+    color: #f04c3c;
+}
+.card .header .icon-container .fa-eye, .fa-pen-to-square, .fa-trash {
+    opacity: 0.7; /* Establece la opacidad inicial */
+    transition: all 0.3s ease; /* Agrega una transición suave */
+}
+.card .header .icon-container .fa-eye:hover, .fa-pen-to-square:hover, .fa-trash:hover {
+    opacity: 1.0; /* Aumenta la opacidad en hover */
+    cursor: pointer;
+}
+.card .header .icon-container .fa-eye:active, .fa-pen-to-square:active, .fa-trash:active {
+    transform: scale(0.75);
+}
+.card .bodi {
+    padding: 5px;
+    margin-bottom: 14.5%;
+}
+.card .bodi h4 {
+    margin-bottom: 0;
+    font-size: medium;
+    font-weight: bold;
+}
+.card .bodi p {
+    font-size: medium;
+    margin-top: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.card .bodi div {
+    text-align: center;
+}
+.card .bodi div .fa-user-plus {
+    color: #30b42c;
+    opacity: 0.7; 
+    transition: all 0.3s ease; 
+}
+.card .bodi div .fa-user-plus:hover {
+    opacity: 1.0;
+    cursor: pointer;
+}
+.card .bodi div .fa-user-plus:active {
+    transform: scale(0.75);
+}
+.card .pie {
+    margin-bottom: 0;
+    background-color: #e4dfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18%;
+    padding: 5px;
+    bottom: 0;
+}
+.card .pie i,p {
+    margin: 1.5px;
+}
+.card .pie button {
+    margin-left: auto;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Definimos los estilos para pantallas con un ancho menor a 768px */
+@media only screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 40px);
+        height: auto;
+    }
+}
+
+/* Definimos los estilos para pantallas con un ancho menor a 480px */
+@media only screen and (max-width: 480px) {
+    .card {
+        width: calc(100% - 40px);
+        height: auto;
+    }
+}

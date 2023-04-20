@@ -1,0 +1,151 @@
+/* Estilos generales */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+}
+
+header h1 {
+	margin: 0;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+}
+
+nav ul li {
+	margin-right: 1rem;
+}
+
+nav ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+/* Estilos para el slider */
+
+#slider {
+	height: 600px;
+	background-color: #eee;
+}
+
+#slider img {
+	height: 100%;
+	width: 100%;
+}
+
+/* Estilos para la sección de información */
+
+/* Estilos para la sección de información */
+
+#informacion {
+	margin-top: 2rem;
+}
+
+#informacion > div:hover {
+	cursor: pointer;
+	background-color: #d0cccc;
+}
+
+#informacion h2 {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.dueños, .empleado-del-mes, .membresias, .otra-informacion {
+	margin-bottom: 2rem;
+	border: 1px solid #ccc;
+	padding: 1rem;
+}
+
+.dueños h3, .empleado-del-mes h3, .membresias h3, .otra-informacion h3 {
+	margin-bottom: 1rem;
+}
+
+.dueños p, .empleado-del-mes p, .membresias p, .otra-informacion p {
+	margin-bottom: 0.5rem;
+}
+
+/* Estilos para la sección de dueños */
+
+.dueños {
+	background-color: #f9f9f9;
+}
+
+.dueños img {
+	float: left;
+	margin-right: 1rem;
+	max-width: 200px;
+}
+
+/* Estilos para la sección de empleado del mes */
+
+.empleado-del-mes {
+	background-color: #f2f2f2;
+}
+
+.empleado-del-mes img {
+	float: left;
+	margin-right: 1rem;
+	max-width: 200px;
+}
+
+/* Estilos para la sección de membresías */
+
+.membresias {
+	background-color: #e5e5e5;
+}
+
+.membresias ul {
+	list-style: none;
+}
+
+.membresias li {
+	padding: 0.5rem 0;
+	border-bottom: 1px solid #ccc;
+}
+
+/* Estilos para la sección de otra información */
+
+.otra-informacion {
+	background-color: #f5f5f5;
+}
+
+.otra-informacion ul {
+	list-style: none;
+}
+
+.otra-informacion li {
+	padding: 0.5rem 0;
+	border-bottom: 1px solid #ccc;
+}
+
+#welcome h2 {
+	margin: 0 0 20px;
+	color: #333;
+  }
+  #welcome p {
+	margin: 0 0 20px;
+	font-size: 18px;
+	line-height: 1.5;
+  }

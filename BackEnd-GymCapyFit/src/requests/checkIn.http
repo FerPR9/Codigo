@@ -1,0 +1,47 @@
+###Obtener Todos los CheckIn
+GET http://localhost:4000/api/checkin
+
+###Crear CheckIn Asistencia
+POST http://localhost:4000/api/checkin
+Content-Type: application/json
+
+{
+    "IdEmpleado":1000000100,
+    "Fecha":"11-2-2023",
+    "Hora":"18:01",
+    "Tipo":"Entrada"
+}
+
+###Crear CheckIn Retardo
+POST http://localhost:4000/api/checkin
+Content-Type: application/json
+
+{
+    "IdEmpleado":1000000100,
+    "Fecha":"22-2-2023",
+    "Hora":"19:06",
+    "Tipo":"Entrada"
+}
+
+###Obtener CheckIn por ID
+GET http://localhost:4000/api/checkin/1000000004
+
+###Eliminar CheckIn por ID
+DELETE http://localhost:4000/api/checkin/1000000004
+
+###Obtener Todos los CheckIn por IdEmpleado
+GET http://localhost:4000/api/checkin/IdEmpleado/1221100262
+
+###Actualizar CheckIn por ID
+PUT http://localhost:3000/api/checkin/63feea9df46b4a233c7dcb96
+Content-Type: application/json
+
+{
+    "IdEmpleado":1221100262,
+    "Fecha":"01/03/2023",
+    "Hora":"00:04",
+    "Tipo":"Salida"
+}
+
+###
+GET http://localhost:4000/api/checkin/reviewChecks/1221100292/19-2-2023
